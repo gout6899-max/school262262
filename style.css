@@ -1,0 +1,169 @@
+/* Основные настройки */
+:root {
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --red: #d32f2f;
+    --blue: #1976d2;
+    --green: #388e3c;
+    --gray-light: #f5f5f5;
+    --border: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15%;
+    box-shadow: 0px 0px 1px black;
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 10;
+}
+
+.logo img{
+    width: 50px;
+}
+
+.logo span { color: var(--blue); }
+.df-js-ac{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav{
+    width: 500px;
+}
+.nav a {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.nav a:after{
+    content: "";
+    display: block;
+    margin: auto;
+    width: 0%;
+    height: 1px;
+    background-color: var(--black);
+    transition: 0.4s;
+}
+.nav a:hover:after{
+    width: 100%;
+}
+.link_vk img{
+    width: 25px;
+
+}
+/* Main Content */
+.main-content {
+    padding: 40px 15%;
+}
+
+.main-title {
+    font-size: 32px;
+    border-left: 4px solid var(--black);
+    padding-left: 15px;
+    margin-bottom: 50px;
+    font-weight: 500;
+}
+
+.category-block {
+    margin-bottom: 60px;
+}
+
+.category-name {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.red { background: var(--red); }
+.blue { background: var(--blue); }
+.green { background: var(--green); }
+
+/* СИСТЕМА ПРОКРУТКИ (БЕЗ JS) */
+.photo-scroller {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 15px;
+    scroll-snap-type: x mandatory; /* Магия прилипания */
+    scrollbar-width: thin;
+    scrollbar-color: var(--black) var(--gray-light);
+}
+
+/* Стилизация полосы прокрутки для Chrome/Edge */
+.photo-scroller::-webkit-scrollbar {
+    height: 8px;
+}
+.photo-scroller::-webkit-scrollbar-thumb {
+    background: var(--black);
+    border-radius: 10px;
+}
+
+.photo-item {
+    min-width: 300px;
+
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--gray-light);
+    transition: transform 0.3s ease;
+}
+
+/* Красивый, неброский ховер */
+.photo-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--black);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 400px;
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 40px 15%;
+    margin-top: 50px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+.photo-item-maxw{
+    width: 500px;
+}
+/* Адаптив для старых экранов */
+@media (max-width: 768px) {
+    .header { flex-direction: column; gap: 15px; }
+    .photo-item { min-width: 80%; }
+}
